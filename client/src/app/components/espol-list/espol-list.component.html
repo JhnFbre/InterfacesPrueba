@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Registros en formato Collection</h2>
+    <br>
+    <table>
+      <thead>
+        <th class="spc">Id_Persona</th>
+        <th class="spc">Id_Institucion</th>
+        <th class="spc">Cedula</th>
+        <th class="spc">Nombre</th>
+        <th class="spc">Apellido</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let espol of espols">
+            <td> {{espol.id_persona}} </td>
+            <td> {{espol.identificacion}} </td>
+            <td> {{espol.cedula}} </td>
+            <td> {{espol.nombres}} </td>
+            <td> {{espol.apellidos}} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <a (click)="migrarEspol()" class="btn btn-danger text-light mt-15 pt-15">MIGRAR</a>
+  </div>
