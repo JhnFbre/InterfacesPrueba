@@ -47,8 +47,8 @@ export class EspolListComponent implements OnInit {
 
   migrarEspol(){
     
-    var pep = new PersonService(this.people);
-    console.log(pep);
+    //var pep = new PersonService(this.people);
+    //console.log(pep);
     var ps = new PersonService(this.people);
     alert("Gondola");
 
