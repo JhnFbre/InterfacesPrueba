@@ -6,6 +6,7 @@ class EspolControllers{
     public async list (req:Request, res:Response){
         const espol= await pool.query('select usuario.id_persona, usuario.identificacion, persona.cedula, persona.nombres, persona.apellidos from usuario inner join persona on usuario.id_persona=persona.id_persona');
         res.json(espol);  
+        console.log("leyendo");
     } 
     public create (req:Request, res:Response){
         res.json({text:'creating a'});

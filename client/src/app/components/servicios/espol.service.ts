@@ -5,12 +5,12 @@ import { HttpClient}  from '@angular/common/http';
 })
 export class EspolService {
 
-  API_URI = 'http://localhost:3000/api';
+  API_URI = 'http://localhost:3000/api/espol';
   
   constructor(private http: HttpClient) { 
 
   }
   getEspol(){
-    return this.http.get(`${this.API_URI}/espol`);
+    return this.http.get(this.API_URI);
   }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EspolService } from '../servicios/espol.service'
+import { EspolService } from '../servicios/espol.service';
+import { PersonaService } from '../servicios/persona.service';
+import { Persona } from '../models/Persona';
 
 
 @Component({
@@ -9,29 +11,44 @@ import { EspolService } from '../servicios/espol.service'
 })
 export class EspolListComponent implements OnInit {
   espols:any = [];
-  constructor(private espolService: EspolService) { }
+  muchos:any=[];
+  constructor(private espolService: EspolService, private personaService:PersonaService) { }
 
   ngOnInit() {
-    this.getGames();
+    this.getSQlBase();
   }
-  getGames(){
+  getSQlBase(){
     this.espolService.getEspol().subscribe(
       res=> {
         this.espols = res;
+        console.log("Base de Datos de ESPOL");
         console.log(this.espols);
       },
       err=> console.error(err)
       );
   }
   migrarEspol(){
-   alert("Gondola");
-   var fs = require('fs');
-
-  fs.writeFile('mynewfile3.txt', 'Hello content!', function (err) {
-    if (err) throw err;
-    console.log('Saved!');
-  });
+   //alert("Migrando base de datos");
+   console.log("Comenzando Migración");
+   /*this.personaService.postPersona(this.espols);
+   */
+   for (var perso of this.espols) {
+    /*console.log(perso);
+    this.personaService.postPersona(perso);*/
+    var juguete: Persona={
+      identificacion:perso.identificacion,
+      cedula: perso.cedula,
+      nombre:perso.nombres,
+      apellido:perso.apellidos
+    }
+    console.log(juguete);
+    
+    this.personaService.postPersona(juguete)
+    .subscribe(res=> {
+    });
   }
+   console.log("Migración completa");
+  } 
 
 
 }
