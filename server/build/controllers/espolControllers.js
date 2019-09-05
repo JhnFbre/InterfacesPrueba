@@ -17,10 +17,30 @@ class EspolControllers {
         return __awaiter(this, void 0, void 0, function* () {
             const espol = yield database_1.default.query('select usuario.id_persona, usuario.identificacion, persona.cedula, persona.nombres, persona.apellidos from usuario inner join persona on usuario.id_persona=persona.id_persona');
             res.json(espol);
+            console.log("leyendo");
+        });
+    }
+    getOne(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const games = yield database_1.default.query('select usuario.identificacion, persona.cedula, persona.nombres, persona.apellidos from usuario inner join persona on usuario.id_persona=persona.id_persona WHERE persona.cedula = ?', [id]);
+            console.log(games.length);
+            if (games.length > 0) {
+                return res.json(games[0]);
+            }
+            res.status(404).json({ text: "La persona no existe" });
         });
     }
     create(req, res) {
         res.json({ text: 'creating a' });
+    }
+    update(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const oldGame = req.body;
+            yield database_1.default.query('UPDATE persona set ? WHERE id_persona = ?', [req.body, id]);
+            res.json({ message: "La persona fue actualizado" });
+        });
     }
 }
 const espolControllers = new EspolControllers();

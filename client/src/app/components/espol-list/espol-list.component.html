@@ -1,25 +1,41 @@
 <div class="container">
-    <h2>Registros en formato Collection</h2>
-    <div class="container">
-      <a (click)="migrarEspol()" class="btn btn-danger text-light mt-15 pt-15">MIGRAR</a>
-    </div>
+  <h1 class="modal-title w-100 font-weight-bold">DATOS</h1>   
+  
     <br>
-    <table>
-      <thead>
-        <th class="spc">Id_Persona</th>
-        <th class="spc">Id_Institucion</th>
-        <th class="spc">Cedula</th>
-        <th class="spc">Nombre</th>
-        <th class="spc">Apellido</th>
-      </thead>
-      <tbody>
-        <tr *ngFor="let espol of espols">
-            <td> {{espol.id_persona}} </td>
-            <td> {{espol.identificacion}} </td>
-            <td> {{espol.cedula}} </td>
-            <td> {{espol.nombres}} </td>
-            <td> {{espol.apellidos}} </td>
-        </tr>
-      </tbody>
-    </table>
+
+    <div style="width: 1020px; height: 400px; overflow:auto">
+
+      <table>
+        <thead>
+          <th class="spc">Id_Persona</th>
+          <th class="spc">Id_Institucion</th>
+          <th class="spc">Cedula</th>
+          <th class="spc">Nombre</th>
+          <th class="spc">Apellido</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let espol of espols">
+              <td> {{espol.id_persona}} </td>
+              <td> {{espol.identificacion}} </td>
+              <td> {{espol.cedula}} </td>
+              <td> {{espol.nombres}} </td>
+              <td> {{espol.apellidos}} </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+
+  <br>
+     <!-- Grid Botones --> 
+     <div class="card-action">
+      <div class="input-field col-s12">
+        <button class="btn btn-success text-light mt-15 pt-15" (click)="migrarEspol()">MIGRAR</button>
+
+        
+      </div>
+    </div>
+   <!-- Grid Botones--> 
+    
   </div>

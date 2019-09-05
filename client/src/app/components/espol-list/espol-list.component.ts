@@ -38,8 +38,8 @@ export class EspolListComponent implements OnInit {
     var juguete: Persona={
       identificacion:perso.identificacion,
       cedula: perso.cedula,
-      nombre:perso.nombres,
-      apellido:perso.apellidos
+      nombre: perso.nombre,
+      apellido: perso.apellido
     }
     console.log(juguete);
     

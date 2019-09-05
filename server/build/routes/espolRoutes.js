@@ -12,7 +12,9 @@ class EspolRoutes {
     }
     config() {
         this.router.get('/', espolControllers_1.default.list);
+        this.router.get('/:id', espolControllers_1.default.getOne);
         this.router.post('/', espolControllers_1.default.create);
+        this.router.put('/:id', espolControllers_1.default.update);
     }
 }
 const espolRoutes = new EspolRoutes();

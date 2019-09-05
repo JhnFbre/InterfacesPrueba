@@ -8,7 +8,9 @@ class EspolRoutes{
     }
     config():void{
         this.router.get('/', espolControllers.list);
+        this.router.get('/:id', espolControllers.getOne);
         this.router.post('/', espolControllers.create);
+        this.router.put('/:id', espolControllers.update);
     } 
 }
 

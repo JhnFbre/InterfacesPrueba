@@ -20,7 +20,8 @@ class Server {
     }
     routes(): void{
         this.app.use(indexRoutes);  
-        this.app.use('/api/espol/', espolRoutes);  
+        this.app.use('/api/espol/', espolRoutes); 
+        this.app.use('/api/espol1/', indexRoutes);  
     }
     start():void{
         this.app.listen(this.app.get('port'), ()=>{

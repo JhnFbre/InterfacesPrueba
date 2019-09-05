@@ -9,6 +9,7 @@ class IndexRoutes{
     }
     config():void{
         this.router.get('/', indexControllers.index );
+        this.router.put('/:id', indexControllers.updateUser);
     }
 }
 

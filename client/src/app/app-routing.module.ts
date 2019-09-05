@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EspolListComponent } from './components/espol-list/espol-list.component'
+import { EspolListComponent } from './components/espol-list/espol-list.component';
+import { FormComponent } from './components/form/form.component'
 const routes: Routes = [
     {
       path: '',
@@ -10,6 +11,10 @@ const routes: Routes = [
     {
       path:'espol',
       component: EspolListComponent 
+    },
+    {
+      path:'form',
+      component: FormComponent 
     }
 ];
 
