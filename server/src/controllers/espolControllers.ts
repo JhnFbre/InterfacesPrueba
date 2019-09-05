@@ -17,8 +17,9 @@ class EspolControllers{
         }
         res.status(404).json({ text: "La persona no existe" });
     } 
-    public create (req:Request, res:Response){
-        res.json({text:'creating a'});
+    public async create(req: Request, res: Response): Promise<void> {
+        const result = await pool.query('INSERT INTO persona set ?', [req.body]);
+        res.json({ message: 'Person Saved' });
     }
     public async update (req:Request, res:Response): Promise<void>{
         const { id } = req.params;

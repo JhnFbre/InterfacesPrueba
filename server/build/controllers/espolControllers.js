@@ -32,7 +32,10 @@ class EspolControllers {
         });
     }
     create(req, res) {
-        res.json({ text: 'creating a' });
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield database_1.default.query('INSERT INTO persona set ?', [req.body]);
+            res.json({ message: 'Person Saved' });
+        });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
